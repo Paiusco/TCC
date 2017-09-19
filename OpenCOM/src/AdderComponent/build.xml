@@ -1,0 +1,33 @@
+<project name="AdderComponent">
+	<property environment="env" />
+	<property name="base.dir" value=".." />
+	<property name="java.dir" value="${env.JRE}/lib/ext" />
+	<property name="src.dir" value="${base.dir}/AdderComponent" />
+	<property name="classes.dir" value="${base.dir}/../classes" />
+	<property name="dist.dir" value="${base.dir}/../dist" />
+	<property name="bin.dir" value="${base.dir}/../bin" />
+
+	<target name="clean">
+		<delete dir="${classes.dir}" />
+		<delete dir="${bin.dir}" />
+	</target>
+
+	<target name="compile">
+		<mkdir dir="${classes.dir}" />
+		<javac srcdir="${src.dir}" destdir="${classes.dir}" />
+	</target>
+
+	<target name="dist" depends="compile">
+		<mkdir dir="${dist.dir}" />
+		<mkdir dir="${src.dir}/classes/AdderComponent" />
+		<copy todir="${src.dir}/classes/AdderComponent">
+			<fileset dir="${classes.dir}/AdderComponent" />
+		</copy>
+		<jar destfile="${dist.dir}/${ant.project.name}.jar" basedir="${src.dir}/classes">
+		</jar>
+		<delete dir="${src.dir}/classes" />
+	</target>
+
+</project>
+
+

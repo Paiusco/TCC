@@ -1,0 +1,29 @@
+<project name="AcceptComponent">
+	<property environment="env" />
+	<property name="base.dir" value=".." />
+	<property name="java.dir" value="${env.JRE}/lib/ext" />
+	<property name="src.dir" value="${base.dir}/AcceptComponent" />
+	<property name="classes.dir" value="${base.dir}/../classes" />
+	<property name="dist.dir" value="${base.dir}/../dist" />
+	<property name="bin.dir" value="${base.dir}/../bin" />
+	
+	<target name="clean">
+		<delete dir="${classes.dir}" />
+		<delete dir="${bin.dir}" />
+	</target>
+	
+	<target name="compile">
+		<javac srcdir="${src.dir}" destdir="${classes.dir}" />
+	</target>
+	
+	<target name="dist" depends="compile">
+		<mkdir dir="${dist.dir}" />
+		<mkdir dir="${src.dir}/classes/AcceptComponent" />
+		<copy todir="${src.dir}/classes/AcceptComponent">
+			<fileset dir="${classes.dir}/AcceptComponent" />
+		</copy>
+		<jar destfile="${dist.dir}/${ant.project.name}.jar" basedir="${src.dir}/classes">
+		</jar>
+		<delete dir="${src.dir}/classes" />
+	</target>
+</project>

@@ -1,0 +1,79 @@
+<project name="OpenCOM" default="compile">
+
+	<path id="class.path">
+		<pathelement path="dist/AcceptComponent.jar" />
+		<pathelement path="dist/AdderComponent.jar" />
+		<pathelement path="dist/CalculatorComponent.jar" />
+		<pathelement path="dist/CalculatorFramework.jar" />
+		<pathelement path="dist/CalculatorTest.jar" />
+		<pathelement path="dist/OpenCOM.jar" />
+		<pathelement path="dist/SubtractComponent.jar" />
+	</path>
+
+	<macrodef name="iterate">
+		<attribute name="target" />
+		<sequential>
+			<subant target="@{target}">
+				<fileset dir="src\OpenCOM\" includes="build.xml" />
+				<fileset dir="src\AdderComponent\" includes="build.xml" />
+				<fileset dir="src\SubtractComponent" includes="build.xml" />
+				<fileset dir="src\CalculatorComponent" includes="build.xml" />
+				<fileset dir="src\AcceptComponent" includes="build.xml" />
+				<fileset dir="src\CalculatorTest" includes="build.xml" />
+				<fileset dir="src\CalculatorFramework" includes="build.xml" />
+			</subant>
+		</sequential>
+	</macrodef>
+
+	<target name="init">
+		<mkdir dir="classes"/>
+	</target>
+
+	<target name="compile" depends="init">
+		<iterate target="compile" />
+	</target>
+
+	<target name="dist" depends="init">
+		<iterate target="dist" />
+	</target>
+
+	<target name="clean">
+		<iterate target="clean" />
+	</target>
+
+	<target name="demo">
+		<java classname="CalculatorTest.TestProgram">
+			<classpath refid="class.path" />
+		</java>
+	</target>
+
+	<target name="frameworkdemo">
+		<java classname="CalculatorFramework.TestProgram">
+			<classpath refid="class.path" />
+		</java>
+	</target>
+
+	<target name="contractdemo">
+		<java classname="CalculatorTest.ContractTest">
+			<classpath refid="class.path" />
+		</java>
+	</target>
+
+	<target name="sequentialreceptacledemo">
+		<java classname="CalculatorTest.SequentialReceptacle">
+			<classpath refid="class.path" />
+		</java>
+	</target>
+
+	<target name="parallelreceptacledemo">
+		<java classname="CalculatorTest.ParallelReceptacle">
+			<classpath refid="class.path" />
+		</java>
+	</target>
+
+	<target name="contextreceptacledemo">
+		<java classname="CalculatorTest.ContextReceptacle">
+			<classpath refid="class.path" />
+		</java>
+	</target>
+</project>

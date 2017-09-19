@@ -1,0 +1,38 @@
+<project name="FlexFT" default="compile">
+
+	<property name="OpenCOM.jar" value="../OpenCOM/dist/OpenCOM.jar" />
+
+	<path id="class.path">
+		<pathelement path="${OpenCOM.jar}/" />
+		<pathelement path="dist/FlexFT.jar" />
+		<pathelement path="dist/Sample.jar" />
+	</path>
+
+	<macrodef name="iterate">
+		<attribute name="target" />
+		<sequential>
+			<subant target="@{target}">
+				<fileset dir="src\FlexFT\" includes="build.xml" />
+				<fileset dir="src\Sample" includes="build.xml" />
+			</subant>
+		</sequential>
+	</macrodef>
+
+	<target name="compile">
+		<iterate target="compile" />
+	</target>
+
+	<target name="dist">
+		<iterate target="dist" />
+	</target>
+
+	<target name="clean">
+		<iterate target="clean" />
+	</target>
+
+	<target name="demo">
+		<java classname="Sample.Application">
+			<classpath refid="class.path" />
+		</java>
+	</target>
+</project>
