@@ -41,7 +41,7 @@ public class WiFiConnection extends State<IConnection> implements IUnknown, ICon
     			String str = "TCC nota 10!\n";
 
     			socket1 = new Socket();
-			socket1.connect(new InetSocketAddress("192.168.0.14", portNumber),5000);
+			socket1.connect(new InetSocketAddress("192.168.2.133", portNumber),5000);
 			System.out.println(str);
 
    			BufferedReader br = new BufferedReader(new InputStreamReader(socket1.getInputStream()));
@@ -72,54 +72,45 @@ public class WiFiConnection extends State<IConnection> implements IUnknown, ICon
 
 
 
-	public void send(String message) {
+	public boolean send(String message) {
 
-			boolean result;
-			if (pingTester("usp.br") != true)
-				if (pingTester("web.mit.edu") != true)
-					if (pingTester("google.com") != true)
-						System.out.println("Colocar aqui retorno de erro Wifi");
-						//colocar aqui o retorno de erro da WiFi
-		/*
-		try {
 
-	                Socket socket1;
-                        int portNumber = 1234;
-                        String str = "TCC nota 10 mesmo!\n";
 
-                        socket1 = new Socket();
-                        socket1.connect(new InetSocketAddress("192.168.0.14", portNumber),10000);
-                        System.out.println(str);
-
-                        BufferedReader br = new BufferedReader(new InputStreamReader(socket1.getInputStream()));
-
-                        PrintWriter pw = new PrintWriter(socket1.getOutputStream(), true);
-
-                        pw.println(str);
-
-                        while ((str = br.readLine()) != null) {
-                                System.out.println(str);
-                                //Thread.sleep(5000);
-                                pw.println("bye");
-
-                                if (str.equals("bye")){
-                                        System.out.println("Errou");
-                                        break;
-                                }
+                File file = new File("/home/pi/inicio.txt");
+                try {
+                        if (file.createNewFile()) {
+                                System.out.println("File named created successfully !");
+                        } else {
+                                System.out.println("File with name already exixts !");
                         }
-
-                        br.close();
-                        pw.close();
-                        socket1.close();
-	                System.out.println("[" + this + "] executando send => " + message);
-        	        System.out.println("[" + this + "] executando send => " + message);
+                } catch (IOException e) {
+                        e.printStackTrace();
                 }
-                catch(Exception e) {
-                        System.out.println("Exception catched");
-                } */
+
+                System.out.println("[" + this + "] executando send => " + message);
+
+		boolean result;
+		if (pingTester("usp.br") != true)
+			if (pingTester("web.mit.edu") != true)
+				if (pingTester("google.com") != true)
+					System.out.println("Colocar aqui retorno de erro Wifi");
+					//colocar aqui o retorno de erro da WiFi
+
 
 		socketCommunication();
-		System.out.println("[" + this + "] executando send => " + message);
-		System.out.println("[" + this + "] executando send => " + message);
+
+                try {
+                        if (file.delete()) {
+                                System.out.println("File deleted successfully !");
+                        } else {
+                                System.out.println("File delete operation failed !");
+                        }
+
+                } catch (Exception e) {
+                        e.printStackTrace();
+                }
+
+
+		return true;
 	}
 }

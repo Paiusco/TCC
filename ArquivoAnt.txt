@@ -1,0 +1,163 @@
+Apache Ant(TM) version 1.9.4 compiled on October 7 2014
+Trying the default build file: build.xml
+Buildfile: /home/pi/TCC/FlexFT/build.xml
+Detected Java version: 1.8 in: /usr/lib/jvm/jdk-8-oracle-arm32-vfp-hflt/jre
+Detected OS: Linux
+parsing buildfile /home/pi/TCC/FlexFT/build.xml with URI = file:/home/pi/TCC/FlexFT/build.xml
+Project base dir set to: /home/pi/TCC/FlexFT
+parsing buildfile jar:file:/usr/share/ant/lib/ant.jar!/org/apache/tools/ant/antlib.xml with URI = jar:file:/usr/share/ant/lib/ant.jar!/org/apache/tools/ant/antlib.xml from a zip file
+ [macrodef] creating macro  iterate
+Build sequence for target(s) `compile' is [compile]
+Complete build sequence is [compile, clean, demo, dist, ]
+
+compile:
+Detected Java version: 1.8 in: /usr/lib/jvm/jdk-8-oracle-arm32-vfp-hflt/jre
+Detected OS: Linux
+   [subant] calling target(s) [compile] in build file /home/pi/TCC/FlexFT/src/FlexFT/build.xml
+parsing buildfile /home/pi/TCC/FlexFT/src/FlexFT/build.xml with URI = file:/home/pi/TCC/FlexFT/src/FlexFT/build.xml
+Project base dir set to: /home/pi/TCC/FlexFT/src/FlexFT
+   [subant] Entering /home/pi/TCC/FlexFT/src/FlexFT/build.xml...
+Build sequence for target(s) `compile' is [compile]
+Complete build sequence is [compile, clean, dist, ]
+
+compile:
+    [mkdir] Skipping /home/pi/TCC/FlexFT/classes because it already exists.
+    [javac] /home/pi/TCC/FlexFT/src/FlexFT/build.xml:16: warning: 'includeantruntime' was not set, defaulting to build.sysclasspath=last; set to false for repeatable builds
+    [javac] Context.java added as Context.class doesn't exist.
+    [javac] ContextComponent.java added as ContextComponent.class doesn't exist.
+    [javac] ContextInterface.java added as ContextInterface.class doesn't exist.
+    [javac] FTComponent.java added as FTComponent.class doesn't exist.
+    [javac] FTException.java added as FTException.class doesn't exist.
+    [javac] FTInterface.java added as FTInterface.class doesn't exist.
+    [javac] NVComponent.java added as NVComponent.class doesn't exist.
+    [javac] NVInterface.java added as NVInterface.class doesn't exist.
+    [javac] NVParalelComponent.java added as NVParalelComponent.class doesn't exist.
+    [javac] NVSequentialComponent.java added as NVSequentialComponent.class doesn't exist.
+    [javac] RBComponent.java added as RBComponent.class doesn't exist.
+    [javac] RBInterface.java added as RBInterface.class doesn't exist.
+    [javac] State.java added as State.class doesn't exist.
+    [javac] StateComponent.java added as StateComponent.class doesn't exist.
+    [javac] StateInterface.java added as StateInterface.class doesn't exist.
+    [javac] /home/pi/TCC/FlexFT/src/FlexFT/build.xml skipped - don't know how to handle it
+    [javac] Compiling 15 source files to /home/pi/TCC/FlexFT/classes
+    [javac] Using modern compiler
+    [javac] Compilation arguments:
+    [javac] '-d'
+    [javac] '/home/pi/TCC/FlexFT/classes'
+    [javac] '-classpath'
+    [javac] '/home/pi/TCC/FlexFT/classes:/home/pi/TCC/OpenCOM/dist/OpenCOM.jar:/usr/share/ant/lib/ant-launcher.jar:/usr/share/ant/lib/ant-junit.jar:/usr/share/ant/lib/ant-commons-net.jar:/usr/share/ant/lib/ant-jmf.jar:/usr/share/ant/lib/ant-apache-regexp.jar:/usr/share/ant/lib/ant-apache-bsf.jar:/usr/share/ant/lib/ant-apache-oro.jar:/usr/share/ant/lib/ant-jdepend.jar:/usr/share/ant/lib/ant-commons-logging.jar:/usr/share/ant/lib/ant-junit4.jar:/usr/share/ant/lib/ant-apache-bcel.jar:/usr/share/ant/lib/ant-apache-xalan2.jar:/usr/share/ant/lib/ant-antlr.jar:/usr/share/ant/lib/ant-apache-resolver.jar:/usr/share/ant/lib/ant-swing.jar:/usr/share/ant/lib/ant-javamail.jar:/usr/share/ant/lib/ant-jsch.jar:/usr/share/ant/lib/ant.jar:/usr/share/ant/lib/ant-apache-log4j.jar:/usr/share/ant/lib/ant-testutil.jar:/usr/lib/jvm/jdk-8-oracle-arm32-vfp-hflt/lib/tools.jar'
+    [javac] '-sourcepath'
+    [javac] '/home/pi/TCC/FlexFT/src/FlexFT'
+    [javac] '-g:none'
+    [javac] 
+    [javac] The ' characters around the executable and arguments are
+    [javac] not part of the command.
+    [javac] Files to be compiled:
+    [javac]     /home/pi/TCC/FlexFT/src/FlexFT/Context.java
+    [javac]     /home/pi/TCC/FlexFT/src/FlexFT/ContextComponent.java
+    [javac]     /home/pi/TCC/FlexFT/src/FlexFT/ContextInterface.java
+    [javac]     /home/pi/TCC/FlexFT/src/FlexFT/FTComponent.java
+    [javac]     /home/pi/TCC/FlexFT/src/FlexFT/FTException.java
+    [javac]     /home/pi/TCC/FlexFT/src/FlexFT/FTInterface.java
+    [javac]     /home/pi/TCC/FlexFT/src/FlexFT/NVComponent.java
+    [javac]     /home/pi/TCC/FlexFT/src/FlexFT/NVInterface.java
+    [javac]     /home/pi/TCC/FlexFT/src/FlexFT/NVParalelComponent.java
+    [javac]     /home/pi/TCC/FlexFT/src/FlexFT/NVSequentialComponent.java
+    [javac]     /home/pi/TCC/FlexFT/src/FlexFT/RBComponent.java
+    [javac]     /home/pi/TCC/FlexFT/src/FlexFT/RBInterface.java
+    [javac]     /home/pi/TCC/FlexFT/src/FlexFT/State.java
+    [javac]     /home/pi/TCC/FlexFT/src/FlexFT/StateComponent.java
+    [javac]     /home/pi/TCC/FlexFT/src/FlexFT/StateInterface.java
+   [subant] Exiting /home/pi/TCC/FlexFT/src/FlexFT/build.xml.
+Detected Java version: 1.8 in: /usr/lib/jvm/jdk-8-oracle-arm32-vfp-hflt/jre
+Detected OS: Linux
+   [subant] calling target(s) [compile] in build file /home/pi/TCC/FlexFT/src/Sample/build.xml
+parsing buildfile /home/pi/TCC/FlexFT/src/Sample/build.xml with URI = file:/home/pi/TCC/FlexFT/src/Sample/build.xml
+Project base dir set to: /home/pi/TCC/FlexFT/src/Sample
+   [subant] Entering /home/pi/TCC/FlexFT/src/Sample/build.xml...
+Build sequence for target(s) `compile' is [compile]
+Complete build sequence is [compile, clean, dist, ]
+
+compile:
+    [mkdir] Skipping /home/pi/TCC/FlexFT/classes because it already exists.
+    [javac] /home/pi/TCC/FlexFT/src/Sample/build.xml:29: warning: 'includeantruntime' was not set, defaulting to build.sysclasspath=last; set to false for repeatable builds
+    [javac] Add/AddRB.java added as Add/AddRB.class doesn't exist.
+    [javac] Add/IAdd.java added as Add/IAdd.class doesn't exist.
+    [javac] Add/RightAdd.java added as Add/RightAdd.class doesn't exist.
+    [javac] Add/WrongAdd.java added as Add/WrongAdd.class doesn't exist.
+    [javac] Application.java added as Application.class doesn't exist.
+    [javac] Calculator/Calculator.java added as Calculator/Calculator.class doesn't exist.
+    [javac] Calculator/ICalculator.java added as Calculator/ICalculator.class doesn't exist.
+    [javac] Connection/ConnectionState.java added as Connection/ConnectionState.class doesn't exist.
+    [javac] Connection/IConnection.java added as Connection/IConnection.class doesn't exist.
+    [javac] Connection/WiFiConnection.java added as Connection/WiFiConnection.class doesn't exist.
+    [javac] /home/pi/TCC/FlexFT/src/Sample/Connection/WiFiConnection.java.save skipped - don't know how to handle it
+    [javac] Connection/ZigBeeConnection.java added as Connection/ZigBeeConnection.class doesn't exist.
+    [javac] Divide/DivideNV.java added as Divide/DivideNV.class doesn't exist.
+    [javac] Divide/IDivide.java added as Divide/IDivide.class doesn't exist.
+    [javac] Divide/RightDivide.java added as Divide/RightDivide.class doesn't exist.
+    [javac] Divide/WrongDivide.java added as Divide/WrongDivide.class doesn't exist.
+    [javac] Multiply/IMultiply.java added as Multiply/IMultiply.class doesn't exist.
+    [javac] Multiply/MultiplyNV.java added as Multiply/MultiplyNV.class doesn't exist.
+    [javac] Multiply/MultiplyVariant.java added as Multiply/MultiplyVariant.class doesn't exist.
+    [javac] Multiply/PlusVariant.java added as Multiply/PlusVariant.class doesn't exist.
+    [javac] Multiply/WrongMultiply.java added as Multiply/WrongMultiply.class doesn't exist.
+    [javac] Sort/GeradorDeArranjos.java added as Sort/GeradorDeArranjos.class doesn't exist.
+    [javac] Sort/ISort.java added as Sort/ISort.class doesn't exist.
+    [javac] Sort/InverteSort.java added as Sort/InverteSort.class doesn't exist.
+    [javac] Sort/NothingSort.java added as Sort/NothingSort.class doesn't exist.
+    [javac] Sort/SelectionSort.java added as Sort/SelectionSort.class doesn't exist.
+    [javac] Sort/SortRB.java added as Sort/SortRB.class doesn't exist.
+    [javac] Subtract/ISubtract.java added as Subtract/ISubtract.class doesn't exist.
+    [javac] Subtract/RightSubtract.java added as Subtract/RightSubtract.class doesn't exist.
+    [javac] Subtract/SubtractContext.java added as Subtract/SubtractContext.class doesn't exist.
+    [javac] Subtract/WrongSubtract.java added as Subtract/WrongSubtract.class doesn't exist.
+    [javac] /home/pi/TCC/FlexFT/src/Sample/build.xml skipped - don't know how to handle it
+    [javac] Compiling 30 source files to /home/pi/TCC/FlexFT/classes
+    [javac] Using modern compiler
+    [javac] Compilation arguments:
+    [javac] '-d'
+    [javac] '/home/pi/TCC/FlexFT/classes'
+    [javac] '-classpath'
+    [javac] '/home/pi/TCC/FlexFT/classes:/home/pi/TCC/FlexFT/dist/FlexFT.jar:/home/pi/TCC/FlexFT/dist/Sample.jar:/home/pi/TCC/FlexFT/dist/android-sdk-5.1.1.jar:/home/pi/TCC/FlexFT/dist/android-sdk-addon-3.jar:/home/pi/TCC/FlexFT/dist/rxtx-2.2.jar:/home/pi/TCC/FlexFT/dist/slf4j-api-1.7.12.jar:/home/pi/TCC/FlexFT/dist/slf4j-nop-1.7.12.jar:/home/pi/TCC/FlexFT/dist/xbee-java-library-1.2.1.jar:/home/pi/TCC/OpenCOM/dist/OpenCOM.jar:/usr/share/ant/lib/ant-launcher.jar:/usr/share/ant/lib/ant-junit.jar:/usr/share/ant/lib/ant-commons-net.jar:/usr/share/ant/lib/ant-jmf.jar:/usr/share/ant/lib/ant-apache-regexp.jar:/usr/share/ant/lib/ant-apache-bsf.jar:/usr/share/ant/lib/ant-apache-oro.jar:/usr/share/ant/lib/ant-jdepend.jar:/usr/share/ant/lib/ant-commons-logging.jar:/usr/share/ant/lib/ant-junit4.jar:/usr/share/ant/lib/ant-apache-bcel.jar:/usr/share/ant/lib/ant-apache-xalan2.jar:/usr/share/ant/lib/ant-antlr.jar:/usr/share/ant/lib/ant-apache-resolver.jar:/usr/share/ant/lib/ant-swing.jar:/usr/share/ant/lib/ant-javamail.jar:/usr/share/ant/lib/ant-jsch.jar:/usr/share/ant/lib/ant.jar:/usr/share/ant/lib/ant-apache-log4j.jar:/usr/share/ant/lib/ant-testutil.jar:/usr/lib/jvm/jdk-8-oracle-arm32-vfp-hflt/lib/tools.jar'
+    [javac] '-sourcepath'
+    [javac] '/home/pi/TCC/FlexFT/src/Sample'
+    [javac] '-g:none'
+    [javac] 
+    [javac] The ' characters around the executable and arguments are
+    [javac] not part of the command.
+    [javac] Files to be compiled:
+    [javac]     /home/pi/TCC/FlexFT/src/Sample/Add/AddRB.java
+    [javac]     /home/pi/TCC/FlexFT/src/Sample/Add/IAdd.java
+    [javac]     /home/pi/TCC/FlexFT/src/Sample/Add/RightAdd.java
+    [javac]     /home/pi/TCC/FlexFT/src/Sample/Add/WrongAdd.java
+    [javac]     /home/pi/TCC/FlexFT/src/Sample/Application.java
+    [javac]     /home/pi/TCC/FlexFT/src/Sample/Calculator/Calculator.java
+    [javac]     /home/pi/TCC/FlexFT/src/Sample/Calculator/ICalculator.java
+    [javac]     /home/pi/TCC/FlexFT/src/Sample/Connection/ConnectionState.java
+    [javac]     /home/pi/TCC/FlexFT/src/Sample/Connection/IConnection.java
+    [javac]     /home/pi/TCC/FlexFT/src/Sample/Connection/WiFiConnection.java
+    [javac]     /home/pi/TCC/FlexFT/src/Sample/Connection/ZigBeeConnection.java
+    [javac]     /home/pi/TCC/FlexFT/src/Sample/Divide/DivideNV.java
+    [javac]     /home/pi/TCC/FlexFT/src/Sample/Divide/IDivide.java
+    [javac]     /home/pi/TCC/FlexFT/src/Sample/Divide/RightDivide.java
+    [javac]     /home/pi/TCC/FlexFT/src/Sample/Divide/WrongDivide.java
+    [javac]     /home/pi/TCC/FlexFT/src/Sample/Multiply/IMultiply.java
+    [javac]     /home/pi/TCC/FlexFT/src/Sample/Multiply/MultiplyNV.java
+    [javac]     /home/pi/TCC/FlexFT/src/Sample/Multiply/MultiplyVariant.java
+    [javac]     /home/pi/TCC/FlexFT/src/Sample/Multiply/PlusVariant.java
+    [javac]     /home/pi/TCC/FlexFT/src/Sample/Multiply/WrongMultiply.java
+    [javac]     /home/pi/TCC/FlexFT/src/Sample/Sort/GeradorDeArranjos.java
+    [javac]     /home/pi/TCC/FlexFT/src/Sample/Sort/ISort.java
+    [javac]     /home/pi/TCC/FlexFT/src/Sample/Sort/InverteSort.java
+    [javac]     /home/pi/TCC/FlexFT/src/Sample/Sort/NothingSort.java
+    [javac]     /home/pi/TCC/FlexFT/src/Sample/Sort/SelectionSort.java
+    [javac]     /home/pi/TCC/FlexFT/src/Sample/Sort/SortRB.java
+    [javac]     /home/pi/TCC/FlexFT/src/Sample/Subtract/ISubtract.java
+    [javac]     /home/pi/TCC/FlexFT/src/Sample/Subtract/RightSubtract.java
+    [javac]     /home/pi/TCC/FlexFT/src/Sample/Subtract/SubtractContext.java
+    [javac]     /home/pi/TCC/FlexFT/src/Sample/Subtract/WrongSubtract.java
+   [subant] Exiting /home/pi/TCC/FlexFT/src/Sample/build.xml.
+
+BUILD SUCCESSFUL
+Total time: 5 seconds

@@ -6,6 +6,17 @@
 	<property name="bin.dir" value="${base.dir}/../bin" />
 
 	<property name="OpenCOM.jar" value="${base.dir}/../../OpenCOM/dist/OpenCOM.jar" />
+	<property name="Xbee.jar" value="../../dist/xbee-java-library-1.2.1.jar" />
+
+	<path id="combined">
+	<path refid="/home/pi/TCC/FlexFT/dist/xbee-java-library-1.2.1.jar" />
+	<path refid="${dist.dir}/rxtx-2.2.jar" />
+	<path refid="${dist.dir}/android-sdk-5.1.1.jar" />
+	<path refid="${dist.dir}/android-sdk-addon-3.jar" />
+	<path refid="${dist.dir}/slf4j-api-1.7.12.jar" />
+	<path refid="${dist.dir}/slf4j-nop-1.7.12.jar" />
+	<path refid="${base.dir}/../../OpenCOM/dist/OpenCOM.jar" />
+	</path>
 	
 	<target name="clean">
 		<delete dir="${classes.dir}" />
@@ -14,7 +25,17 @@
 
 	<target name="compile">
 		<mkdir dir="${classes.dir}" />
-		<javac srcdir="${src.dir}" destdir="${classes.dir}" classpath="${OpenCOM.jar}" />
+		<!-- javac srcdir="${src.dir}" destdir="${classes.dir}" classpath="${OpenCOM.jar}" /-->
+		<javac srcdir="${src.dir}" destdir="${classes.dir}" >
+	 		<classpath> 
+				<fileset dir="../../dist/"> 
+					<include name="*.jar" /> 
+				</fileset> 
+				<fileset dir="${base.dir}/../../OpenCOM/dist/"> 
+					<include name="OpenCOM.jar" /> 
+				</fileset> 
+			</classpath> 
+		</javac>
 	</target>
 
 	<target name="dist" depends="compile">

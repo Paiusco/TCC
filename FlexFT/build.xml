@@ -6,6 +6,12 @@
 		<pathelement path="${OpenCOM.jar}/" />
 		<pathelement path="dist/FlexFT.jar" />
 		<pathelement path="dist/Sample.jar" />
+		<pathelement path="dist/xbee-java-library-1.2.1.jar" />
+		<pathelement path="dist/rxtx-2.2.jar" />
+		<pathelement path="dist/android-sdk-5.1.1.jar" />
+		<pathelement path="dist/android-sdk-addon-3.jar" />
+		<pathelement path="dist/slf4j-api-1.7.12.jar" />
+		<pathelement path="dist/slf4j-nop-1.7.12.jar" />
 	</path>
 
 	<macrodef name="iterate">
@@ -31,7 +37,8 @@
 	</target>
 
 	<target name="demo">
-		<java classname="Sample.Application">
+		<java classname="Sample.Application" fork="True">
+			<sysproperty key="java.library.path" path="/usr/lib/jni"/>
 			<classpath refid="class.path" />
 		</java>
 	</target>

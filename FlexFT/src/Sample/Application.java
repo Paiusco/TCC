@@ -1,6 +1,6 @@
 package Sample;
 
-import java.io.IOException;
+import java.io.*;
 
 import FlexFT.StateInterface;
 import FlexFT.ContextInterface;
@@ -14,7 +14,7 @@ import Sample.Add.RightAdd;
 import Sample.Add.WrongAdd;
 import Sample.Calculator.Calculator;
 import Sample.Calculator.ICalculator;
-import Sample.Connection.BluetoothConnection;
+import Sample.Connection.ZigBeeConnection;
 import Sample.Connection.ConnectionState;
 import Sample.Connection.IConnection;
 import Sample.Connection.WiFiConnection;
@@ -43,6 +43,42 @@ public class Application {
 	public static void main(String[] args) throws IOException,
 			InterruptedException {
 
+
+
+		File file = new File("/home/pi/inicio.txt");
+                try {
+                        if (file.createNewFile()) {
+                                System.out.println("File named created successfully !");
+                        } else {
+                                System.out.println("File with name already exixts !");
+                        }
+                } catch (IOException e) {
+                        e.printStackTrace();
+                }
+
+                int count = 0;
+                while (count !=10){
+                count++;
+                Thread.sleep(1000);
+                }
+
+                try {
+                        if (file.delete()) {
+                                System.out.println("File deleted successfully !");
+                        } else {
+                                System.out.println("File delete operation failed !");
+                        }
+
+                } catch (Exception e) {
+                        e.printStackTrace();
+                }
+
+
+
+
+
+
+
 		// Create the OpenCOM runtime & Get the IOpenCOM interface reference
 
 		OpenCOM runtime = new OpenCOM();
@@ -59,7 +95,7 @@ public class Application {
 		pILife.startup(pIOCM);
 
 		// Create the Add Components
-
+		
 		for (int i = 1; i <= 2; i++) {
 			IUnknown pAddIUnk;
 			if (i < 2) {
@@ -74,7 +110,7 @@ public class Application {
 			pILife.startup(pIOCM);
 			runtime.connect(pAddRBIUnk, pAddIUnk, IAdd.class.getName());
 		}
-
+		
 		// Create the SortRB component
 
 		IUnknown pSortRBIUnk = (IUnknown) pIOCM.createInstance(SortRB.class
@@ -85,7 +121,7 @@ public class Application {
 		pILife.startup(pIOCM);
 
 		// Create the Sort Components
-
+		
 		for (int i = 1; i <= 3; i++) {
 			IUnknown pSortIUnk;
 			if (i == 1) {
@@ -103,6 +139,7 @@ public class Application {
 			pILife.startup(pIOCM);
 			runtime.connect(pSortRBIUnk, pSortIUnk, ISort.class.getName());
 		}
+		
 		// Create the MultiplyNV component
 
 		IUnknown pMulNVIUnk = (IUnknown) pIOCM.createInstance(MultiplyNV.class
@@ -229,33 +266,33 @@ public class Application {
 		runtime.connect(pCalcIUnk, pSubCxtIUnk, ISubtract.class.getName());
 
 		// Lets test the Add components
-		System.out.println("18 + 19 = " + pICalc.add(18, 19));
-		System.out.println("0 + 0 = " + pICalc.add(0, 0));
+	//	System.out.println("18 + 19 = " + pICalc.add(18, 19));
+	//	System.out.println("0 + 0 = " + pICalc.add(0, 0));
 
 		// Lets test the Multiply components
-		System.out.println("21 * 13 = " + pICalc.multiply(21, 13));
-		System.out.println("21 * -13 = " + pICalc.multiply(21, -13));
-		System.out.println("-21 * 13 = " + pICalc.multiply(-21, 13));
-		System.out.println("-21 * -13 = " + pICalc.multiply(-21, -13));
+	//	System.out.println("21 * 13 = " + pICalc.multiply(21, 13));
+	//	System.out.println("21 * -13 = " + pICalc.multiply(21, -13));
+	//	System.out.println("-21 * 13 = " + pICalc.multiply(-21, 13));
+	//	System.out.println("-21 * -13 = " + pICalc.multiply(-21, -13));
 
 		// Lets test the Divide components
-		System.out.println("196 / 14 = " + pICalc.divide(196, 14));
-		System.out.println("196 / -14 = " + pICalc.divide(196, -14));
-		System.out.println("-196 / 14 = " + pICalc.divide(-196, 14));
-		System.out.println("-196 / -14 = " + pICalc.divide(-196, -14));
+	//	System.out.println("196 / 14 = " + pICalc.divide(196, 14));
+	//	System.out.println("196 / -14 = " + pICalc.divide(196, -14));
+	//	System.out.println("-196 / 14 = " + pICalc.divide(-196, 14));
+	//	System.out.println("-196 / -14 = " + pICalc.divide(-196, -14));
 
 		// Lets test the Subtract components
-		pISubtractContext.changeContext(RightSubtract.class.getName());
+	//	pISubtractContext.changeContext(RightSubtract.class.getName());
 
-		System.out.println("The value of 99 - 11 = " + pICalc.subtract(99, 11));
+	//	System.out.println("The value of 99 - 11 = " + pICalc.subtract(99, 11));
 
-		pISubtractContext.changeContext(WrongSubtract.class.getName());
+	//	pISubtractContext.changeContext(WrongSubtract.class.getName());
 
-		System.out.println("The value of 99 - 11 = " + pICalc.subtract(99, 11));
+	//	System.out.println("The value of 99 - 11 = " + pICalc.subtract(99, 11));
 
-		pISubtractContext.changeContext(RightSubtract.class.getName());
+	//	pISubtractContext.changeContext(RightSubtract.class.getName());
 
-		System.out.println("The value of 99 - 11 = " + pICalc.subtract(99, 11));
+	//	System.out.println("The value of 99 - 11 = " + pICalc.subtract(99, 11));
 
 		// Lets test the Sort components
 		Integer[] elements = GeradorDeArranjos.geraArranjoCrescente(10);
@@ -279,14 +316,86 @@ public class Application {
 		System.out.print("ordered => ");
 		GeradorDeArranjos.imprimeArranjo(ordered);
 
+
+
+/*		File file = new File("/home/pi/inicio.txt");
+                try {
+                        if (file.createNewFile()) {
+                                System.out.println("File named created successfully !");
+                        } else {
+                                System.out.println("File with name already exixts !");
+                        }
+                } catch (IOException e) {
+                        e.printStackTrace();
+                }
+
+		int count = 0;
+		while (count !=10){
+		count++;
+		Thread.sleep(1000);
+		}
+
+                try {
+                        if (file.delete()) {
+                                System.out.println("File deleted successfully !");
+                        } else {
+                                System.out.println("File delete operation failed !");
+                        }
+
+                } catch (Exception e) {
+                        e.printStackTrace();
+                }*/
+
+
+
+
+
 		// Lets test the Connection components
 		pIConnectionContext.changeState(WiFiConnection.class);
-		pIConnection.send("bla");
+/*                File file = new File("/home/pi/inicio.txt");
+                try {
+                        if (file.createNewFile()) {
+                                System.out.println("File named created successfully !");
+                        } else {
+                                System.out.println("File with name already exixts !");
+                        }
+                } catch (IOException e) {
+                        e.printStackTrace();
+                }
 
-		pIConnectionContext.changeState(BluetoothConnection.class);
-		pIConnection.send("bla");
+                int count = 0;
+                while (count !=10){
+                count++;
+                Thread.sleep(1000);
+                }
 
-		pIConnectionContext.changeState(WiFiConnection.class);
-		pIConnection.send("bla");
+                try {
+                        if (file.delete()) {
+                                System.out.println("File deleted successfully !");
+                        } else {
+                                System.out.println("File delete operation failed !");
+                        }
+
+                } catch (Exception e) {
+                        e.printStackTrace();
+                }*/
+
+		//Thread.sleep(4000);
+		//long startTime = System.nanoTime();
+		//pIConnection.send("bla");
+		//long endTime = System.nanoTime();
+		//long duration = (endTime - startTime);
+		//System.out.printf("O tempo do Wifi deu: %d milisegundos \n", duration/1000000);
+
+		//pIConnectionContext.changeState(ZigBeeConnection.class);
+		//startTime = System.nanoTime();
+		//pIConnection.send("bla");
+		//endTime = System.nanoTime();
+		//duration = (endTime - startTime);
+		//System.out.printf("O tempo do Xbee: %d milisegundos \n", duration/1000000);
+
+
+		//pIConnectionContext.changeState(WiFiConnection.class);
+		//pIConnection.send("bla");
 	}
 }

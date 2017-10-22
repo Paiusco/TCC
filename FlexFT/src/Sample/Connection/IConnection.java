@@ -1,5 +1,5 @@
 package Sample.Connection;
 
 public interface IConnection {
-	public void send(String message);
+	public boolean send(String message);
 }

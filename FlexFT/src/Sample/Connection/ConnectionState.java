@@ -13,9 +13,10 @@ public class ConnectionState extends StateComponent<IConnection> implements
 	public ConnectionState(IUnknown binder) {
 		super(binder);
 	}
-	
-	public void send(String message) {
+
+	public boolean send(String message) {
 		Object[] args = new Object[] { message };
 		this.execute("send", args);
+		return true;
 	}
 }
